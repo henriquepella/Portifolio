@@ -1,0 +1,12 @@
+{
+  "name": "portfolio-henrique-pella",
+  "version": "1.0.0",
+  "description": "Portfólio estático de Henrique Pella",
+  "private": true,
+  "scripts": {
+    "start": "live-server --port=8000 --open=./index.html"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
