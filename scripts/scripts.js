@@ -86,8 +86,10 @@ const translations = {
     'btn-details': 'Ver Detalhes',
     'project1-title': 'DashBoard Fut 360',
     'project1-description': 'Dashboard completo para gerenciamento de dados de futebol, desenvolvido como Projeto Integrador na PUC Campinas.',
+    'project1-tags': ['Java', 'Projeto Integrador', 'Dashboard', 'Gestão'],
     'project2-title': 'RPG Adventure Game',
     'project2-description': 'Jogo RPG completo desenvolvido em Java com interface gráfica Swing. Sistema completo de classes, combate e inventário.',
+    'project2-tags': ['Java', 'Swing GUI', 'POO', 'Game Dev'],
     'skills-title': 'Habilidades Técnicas',
     'skills-title-alt': 'Conhecimentos na Área de TI',
     'skill-level-basic': 'Básico',
@@ -174,8 +176,10 @@ const translations = {
     'btn-details': 'View Details',
     'project1-title': 'DashBoard Fut 360',
     'project1-description': 'Complete dashboard for managing soccer data, developed as an Integrative Project at PUC Campinas.',
+    'project1-tags': ['Java', 'Integrative Project', 'Dashboard', 'Management'],
     'project2-title': 'RPG Adventure Game',
     'project2-description': 'Complete RPG game developed in Java with Swing GUI. Complete system with classes, combat and inventory.',
+    'project2-tags': ['Java', 'Swing GUI', 'OOP', 'Game Dev'],
     'skills-title': 'Technical Skills',
     'skills-title-alt': 'IT Knowledge & Skills',
     'skill-level-basic': 'Basic',
@@ -317,14 +321,22 @@ function changeLanguage(lang) {
   if (projectCards[0]) {
     const h3 = projectCards[0].querySelector('h3');
     const p = projectCards[0].querySelector('p');
+    const tagsDiv = projectCards[0].querySelector('.project-tags');
     if (h3) h3.textContent = translations[lang]['project1-title'];
     if (p) p.textContent = translations[lang]['project1-description'];
+    if (tagsDiv && translations[lang]['project1-tags']) {
+      tagsDiv.innerHTML = translations[lang]['project1-tags'].map(tag => `<span>${tag}</span>`).join('');
+    }
   }
   if (projectCards[1]) {
     const h3 = projectCards[1].querySelector('h3');
     const p = projectCards[1].querySelector('p');
+    const tagsDiv = projectCards[1].querySelector('.project-tags');
     if (h3) h3.textContent = translations[lang]['project2-title'];
     if (p) p.textContent = translations[lang]['project2-description'];
+    if (tagsDiv && translations[lang]['project2-tags']) {
+      tagsDiv.innerHTML = translations[lang]['project2-tags'].map(tag => `<span>${tag}</span>`).join('');
+    }
   }
   
   // Skills
@@ -464,9 +476,46 @@ function changeLanguage(lang) {
     if (svg) btn.appendChild(svg);
   });
 
-  // Header download button
+  // Download buttons - Change file based on language
   const headerDownload = document.querySelector('.btn-header');
-  if (headerDownload) headerDownload.textContent = lang === 'en' ? '📄 Download CV' : '📄 Baixar CV';
+  const heroDownload = document.querySelector('.hero-cta .btn-secondary');
+  const contactDownload = document.querySelector('.download-cv');
+  
+  if (lang === 'en') {
+    // English CV
+    if (headerDownload) {
+      headerDownload.textContent = '📄 Download CV';
+      headerDownload.href = 'assets/HENRIQUE%20PELLA%20CV.pdf';
+      headerDownload.setAttribute('download', 'HENRIQUE PELLA CV.pdf');
+    }
+    if (heroDownload) {
+      heroDownload.textContent = translations[lang]['btn-download'];
+      heroDownload.href = 'assets/HENRIQUE%20PELLA%20CV.pdf';
+      heroDownload.setAttribute('download', 'HENRIQUE PELLA CV.pdf');
+    }
+    if (contactDownload) {
+      contactDownload.textContent = translations[lang]['download-cv'];
+      contactDownload.href = 'assets/HENRIQUE%20PELLA%20CV.pdf';
+      contactDownload.setAttribute('download', 'HENRIQUE PELLA CV.pdf');
+    }
+  } else {
+    // Portuguese CV
+    if (headerDownload) {
+      headerDownload.textContent = '📄 Baixar CV';
+      headerDownload.href = 'assets/HENRIQUE%20AGUIAR%20DE%20SOUZA%20PELLA.pdf';
+      headerDownload.setAttribute('download', 'Curriculo Henrique Aguiar de Souza Pella.pdf');
+    }
+    if (heroDownload) {
+      heroDownload.textContent = translations[lang]['btn-download'];
+      heroDownload.href = 'assets/HENRIQUE%20AGUIAR%20DE%20SOUZA%20PELLA.pdf';
+      heroDownload.setAttribute('download', 'Curriculo Henrique Aguiar de Souza Pella.pdf');
+    }
+    if (contactDownload) {
+      contactDownload.textContent = translations[lang]['download-cv'];
+      contactDownload.href = 'assets/HENRIQUE%20AGUIAR%20DE%20SOUZA%20PELLA.pdf';
+      contactDownload.setAttribute('download', 'Curriculo Henrique Aguiar de Souza Pella.pdf');
+    }
+  }
 }
 
 // Inicializa
