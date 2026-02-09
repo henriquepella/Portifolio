@@ -56,6 +56,430 @@ themeToggle?.addEventListener('click', () => {
   }, 350);
 });
 
+// ========== INTERNATIONALIZATION (i18n) ==========
+const translations = {
+  pt: {
+    'hero-badge': 'Disponível para oportunidades',
+    'hero-role': 'Engenheiro de Software',
+    'hero-tagline': 'Desenvolvimento de Software • QA • Java • Python • Web Development',
+    'btn-contact': 'Entre em contato',
+    'btn-download': 'Baixar Currículo',
+    'stat-xp': 'Anos de Experiência',
+    'stat-projects': 'Projetos Concluídos',
+    'stat-tech': 'Tecnologias Dominadas',
+    'stat-dedication': 'Dedicação',
+    'about-title': 'Sobre mim',
+    'about-p1': 'Profissional em início de carreira, motivado a aprender e me desenvolver constantemente. Utilizo minha vivência em <strong>desenvolvimento de software</strong>, competências em <strong>programação</strong> e conhecimento em <strong>testes de qualidade (QA)</strong> para agregar valor na criação, evolução e manutenção de sistemas.',
+    'about-p2': 'Sou comprometido com <strong>aprendizado contínuo</strong> e <strong>colaboração em equipe</strong>, sempre aplicando minha capacidade de solucionar problemas e meu entusiasmo por tecnologia. Tenho facilidade em aprender, boa comunicação e grande interesse em crescer profissionalmente nas áreas de <strong>desenvolvimento</strong> ou <strong>engenharia de software</strong>.',
+    'about-p3': 'Busco uma oportunidade que me permita aplicar meus conhecimentos, adquirir novas habilidades e contribuir de forma positiva para a equipe. Estou preparado para enfrentar novos desafios com dedicação, disciplina, responsabilidade e vontade de evoluir.',
+    'highlight1-title': 'PUC Campinas',
+    'highlight1-subtitle': 'Engenharia de Software (2024-2027)',
+    'highlight2-title': 'Intercâmbio EUA',
+    'highlight2-subtitle': 'Lassen High School (2022-2023)',
+    'highlight3-title': 'Ensino Médio',
+    'highlight3-subtitle': 'Anglo São João da Boa Vista (2018-2021)',
+    'highlight4-title': 'Curso de Inglês',
+    'highlight4-subtitle': 'America São João da Boa Vista (2017-2021)',
+    'highlight5-title': 'Inglês Avançado',
+    'highlight5-subtitle': 'Exchange Student',
+    'projects-title': 'Projetos em Destaque',
+    'btn-details': 'Ver Detalhes',
+    'project1-title': 'DashBoard Fut 360',
+    'project1-description': 'Dashboard completo para gerenciamento de dados de futebol, desenvolvido como Projeto Integrador na PUC Campinas.',
+    'project2-title': 'RPG Adventure Game',
+    'project2-description': 'Jogo RPG completo desenvolvido em Java com interface gráfica Swing. Sistema completo de classes, combate e inventário.',
+    'skills-title': 'Habilidades Técnicas',
+    'skills-title-alt': 'Conhecimentos na Área de TI',
+    'skill-level-basic': 'Básico',
+    'skill-level-intermediary': 'Intermediário',
+    'skill-level-regular': 'Regular',
+    'skill-level-advanced': 'Avançado',
+    'skill-level-good': 'Bom',
+    'skill-category-programming': '💻 Linguagens de Programação',
+    'skill-category-development': '🌐 Desenvolvimento',
+    'skill-category-database': '🗄️ Banco de Dados - Oracle',
+    'skill-category-methodologies': '🛠️ Metodologias & Ferramentas',
+    'skill-db-procedures': '✓ Desenvolvimento de Procedures',
+    'skill-db-functions': '✓ Desenvolvimento de Funções',
+    'skill-db-triggers': '✓ Desenvolvimento de Triggers',
+    'modal-about': 'Sobre o Projeto',
+    'modal-features': 'Funcionalidades',
+    'modal-tech': 'Tecnologias',
+    'download-cv': '📄 Baixar Currículo Completo',
+    'fut360-description': 'Dashboard completo para gerenciamento de dados de futebol, desenvolvido como Projeto Integrador na PUC Campinas. Sistema integrado para gestão de atletas, calendário de jogos, controle financeiro e relatórios detalhados.',
+    'fut360-f1': '📊 Dashboard com métricas e estatísticas em tempo real',
+    'fut360-f2': '👥 Gestão completa de cadastro e perfis de atletas',
+    'fut360-f3': '📅 Calendário interativo de jogos e eventos',
+    'fut360-f4': '💰 Sistema de controle financeiro integrado',
+    'fut360-f5': '📈 Geração de relatórios e análises detalhadas',
+    'rpg-description': 'Jogo RPG completo desenvolvido em Java com interface gráfica Swing. Inclui sistema de criação de personagem com classes (Guerreiro, Mago, Arqueiro), combate por turnos, inventário com itens consumíveis, progressão de nível e narrativa imersiva.',
+    'rpg-f1': '🎭 Sistema de classes com atributos e habilidades únicas',
+    'rpg-f2': '⚔️ Combate estratégico por turnos',
+    'rpg-f3': '🎒 Sistema de inventário e gerenciamento de itens',
+    'rpg-f4': '📖 Narrativa rica com múltiplas escolhas',
+    'rpg-f5': '📊 Sistema de progressão e evolução de personagem',
+    'formation-title': 'Formação Acadêmica',
+    'formation1-title': 'Curso de Inglês',
+    'formation1-place': '💬 America São João da Boa Vista',
+    'formation1-date': '📅 2017 - 2021',
+    'formation2-title': 'Ensino Médio Completo',
+    'formation2-place': '🏫 Anglo São João da Boa Vista',
+    'formation2-date': '📅 2018 - 2021',
+    'formation3-title': 'Senior Year Graduation',
+    'formation3-place': '🌎 Lassen High School, EUA',
+    'formation3-date': '📅 2022 - 2023',
+    'formation4-title': 'Bacharelado em Engenharia de Software',
+    'formation4-place': '🎓 PUC Campinas',
+    'formation4-date': '📅 2024 - 2027',
+    'badge-ongoing': 'Em andamento',
+    'contact-title': 'Vamos criar algo',
+    'contact-highlight': 'incrível juntos',
+    'contact-subtitle': 'Disponível para oportunidades nas áreas de desenvolvimento ou engenharia de software.',
+    'form-name': 'Seu Nome',
+    'form-email': 'Seu E-mail',
+    'form-message': 'Sua Mensagem',
+    'btn-send': 'Enviar Mensagem',
+    'nav-inicio': 'Início',
+    'nav-sobre': 'Sobre',
+    'nav-projetos': 'Projetos',
+    'nav-skills': 'Skills',
+    'nav-formacao': 'Formação',
+    'nav-contato': 'Contato'
+  },
+  en: {
+    'hero-badge': 'Available for opportunities',
+    'hero-role': 'Software Engineer',
+    'hero-tagline': 'Software Development • QA • Java • Python • Web Development',
+    'btn-contact': 'Contact me',
+    'btn-download': 'Download Resume',
+    'stat-xp': 'Years of Experience',
+    'stat-projects': 'Completed Projects',
+    'stat-tech': 'Technologies Mastered',
+    'stat-dedication': 'Dedication',
+    'about-title': 'About me',
+    'about-p1': 'Early-career professional, motivated to constantly learn and develop. I leverage my experience in <strong>software development</strong>, skills in <strong>programming</strong>, and knowledge in <strong>quality assurance (QA)</strong> to add value in the creation, evolution, and maintenance of systems.',
+    'about-p2': 'I am committed to <strong>continuous learning</strong> and <strong>team collaboration</strong>, always applying my problem-solving skills and enthusiasm for technology. I am a quick learner with good communication skills and a strong interest in growing professionally in <strong>software development</strong> or <strong>software engineering</strong>.',
+    'about-p3': 'I seek an opportunity that allows me to apply my knowledge, acquire new skills, and contribute positively to the team. I am prepared to face new challenges with dedication, discipline, responsibility, and a desire to evolve.',
+    'highlight1-title': 'PUC Campinas',
+    'highlight1-subtitle': 'Software Engineering (2024-2027)',
+    'highlight2-title': 'Exchange in USA',
+    'highlight2-subtitle': 'Lassen High School (2022-2023)',
+    'highlight3-title': 'High School',
+    'highlight3-subtitle': 'Anglo São João da Boa Vista (2018-2021)',
+    'highlight4-title': 'English Course',
+    'highlight4-subtitle': 'America São João da Boa Vista (2017-2021)',
+    'highlight5-title': 'Advanced English',
+    'highlight5-subtitle': 'Exchange Student',
+    'projects-title': 'Featured Projects',
+    'btn-details': 'View Details',
+    'project1-title': 'DashBoard Fut 360',
+    'project1-description': 'Complete dashboard for managing soccer data, developed as an Integrative Project at PUC Campinas.',
+    'project2-title': 'RPG Adventure Game',
+    'project2-description': 'Complete RPG game developed in Java with Swing GUI. Complete system with classes, combat and inventory.',
+    'skills-title': 'Technical Skills',
+    'skills-title-alt': 'IT Knowledge & Skills',
+    'skill-level-basic': 'Basic',
+    'skill-level-intermediary': 'Intermediary',
+    'skill-level-regular': 'Regular',
+    'skill-level-advanced': 'Advanced',
+    'skill-level-good': 'Good',
+    'skill-category-programming': '💻 Programming Languages',
+    'skill-category-development': '🌐 Development',
+    'skill-category-database': '🗄️ Database - Oracle',
+    'skill-category-methodologies': '🛠️ Methodologies & Tools',
+    'skill-db-procedures': '✓ Procedures Development',
+    'skill-db-functions': '✓ Functions Development',
+    'skill-db-triggers': '✓ Triggers Development',
+    'modal-about': 'About the Project',
+    'modal-features': 'Features',
+    'modal-tech': 'Technologies',
+    'download-cv': '📄 Download Full Resume',
+    'fut360-description': 'Complete dashboard for managing soccer data, developed as an Integrative Project at PUC Campinas. Integrated system for athlete management, game calendar, financial control, and detailed reports.',
+    'fut360-f1': '📊 Dashboard with real-time metrics and statistics',
+    'fut360-f2': '👥 Complete athlete registration and profile management',
+    'fut360-f3': '📅 Interactive calendar for games and events',
+    'fut360-f4': '💰 Integrated financial control system',
+    'fut360-f5': '📈 Generation of detailed reports and analyses',
+    'rpg-description': 'Complete RPG game developed in Java with Swing GUI. Includes character creation system with classes (Warrior, Mage, Archer), turn-based combat, inventory with consumable items, level progression, and immersive narrative.',
+    'rpg-f1': '🎭 Class system with unique attributes and abilities',
+    'rpg-f2': '⚔️ Strategic turn-based combat',
+    'rpg-f3': '🎒 Inventory and item management system',
+    'rpg-f4': '📖 Rich narrative with multiple choices',
+    'rpg-f5': '📊 Character progression and evolution system',
+    'formation-title': 'Education',
+    'formation1-title': 'English Course',
+    'formation1-place': '💬 America São João da Boa Vista',
+    'formation1-date': '📅 2017 - 2021',
+    'formation2-title': 'High School Diploma',
+    'formation2-place': '🏫 Anglo São João da Boa Vista',
+    'formation2-date': '📅 2018 - 2021',
+    'formation3-title': 'Senior Year Graduation',
+    'formation3-place': '🌎 Lassen High School, USA',
+    'formation3-date': '📅 2022 - 2023',
+    'formation4-title': 'Bachelor\'s Degree in Software Engineering',
+    'formation4-place': '🎓 PUC Campinas',
+    'formation4-date': '📅 2024 - 2027',
+    'badge-ongoing': 'Ongoing',
+    'contact-title': 'Let\'s build something',
+    'contact-highlight': 'amazing together',
+    'contact-subtitle': 'Available for opportunities in software development or software engineering.',
+    'form-name': 'Your Name',
+    'form-email': 'Your Email',
+    'form-message': 'Your Message',
+    'btn-send': 'Send Message',
+    'nav-inicio': 'Home',
+    'nav-sobre': 'About',
+    'nav-projetos': 'Projects',
+    'nav-skills': 'Skills',
+    'nav-formacao': 'Education',
+    'nav-contato': 'Contact'
+  }
+};
+
+let currentLang = localStorage.getItem('language') || 'pt';
+
+function changeLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('language', lang);
+  
+  const langToggle = document.getElementById('langToggle');
+  const flagIcon = langToggle?.querySelector('.flag-icon');
+  const langText = langToggle?.querySelector('.lang-text');
+  
+  if (lang === 'en') {
+    if (flagIcon) flagIcon.textContent = '🇺🇸';
+    if (langText) langText.textContent = 'EN';
+  } else {
+    if (flagIcon) flagIcon.textContent = '🇧🇷';
+    if (langText) langText.textContent = 'PT';
+  }
+  
+  // Hero
+  const heroBadge = document.querySelector('.hero-badge');
+  const heroRole = document.querySelector('.hero-role');
+  const heroTagline = document.querySelector('.hero-tagline');
+  if (heroBadge) heroBadge.textContent = translations[lang]['hero-badge'];
+  if (heroRole) heroRole.textContent = translations[lang]['hero-role'];
+  if (heroTagline) heroTagline.textContent = translations[lang]['hero-tagline'];
+  
+  // Nav
+  const navLinks = document.querySelectorAll('.nav-link');
+  const navKeys = ['nav-inicio', 'nav-sobre', 'nav-projetos', 'nav-skills', 'nav-formacao', 'nav-contato'];
+  navLinks.forEach((link, index) => {
+    if (navKeys[index] && translations[lang][navKeys[index]]) {
+      link.textContent = translations[lang][navKeys[index]];
+    }
+  });
+  
+  // Buttons
+  const btnContact = document.querySelector('.hero-cta .btn-primary');
+  const btnDownload = document.querySelector('.hero-cta .btn-secondary');
+  if (btnContact) btnContact.textContent = translations[lang]['btn-contact'];
+  if (btnDownload) btnDownload.textContent = translations[lang]['btn-download'];
+  
+  // Stats
+  const statLabels = document.querySelectorAll('.stat-label');
+  const statKeys = ['stat-xp', 'stat-projects', 'stat-tech', 'stat-dedication'];
+  statLabels.forEach((label, index) => {
+    if (statKeys[index] && translations[lang][statKeys[index]]) {
+      label.textContent = translations[lang][statKeys[index]];
+    }
+  });
+  
+  // About Section
+  const aboutTitle = document.querySelector('#sobre h2');
+  const aboutParagraphs = document.querySelectorAll('#sobre .about-text p');
+  if (aboutTitle) aboutTitle.textContent = translations[lang]['about-title'];
+  if (aboutParagraphs[0]) aboutParagraphs[0].innerHTML = translations[lang]['about-p1'];
+  if (aboutParagraphs[1]) aboutParagraphs[1].innerHTML = translations[lang]['about-p2'];
+  if (aboutParagraphs[2]) aboutParagraphs[2].innerHTML = translations[lang]['about-p3'];
+  
+  // About Highlights
+  const highlights = document.querySelectorAll('.highlight-item strong');
+  const highlightSubtitles = document.querySelectorAll('.highlight-item span:not(.highlight-icon)');
+  if (highlights[0]) highlights[0].textContent = translations[lang]['highlight1-title'];
+  if (highlightSubtitles[0]) highlightSubtitles[0].textContent = translations[lang]['highlight1-subtitle'];
+  if (highlights[1]) highlights[1].textContent = translations[lang]['highlight2-title'];
+  if (highlightSubtitles[1]) highlightSubtitles[1].textContent = translations[lang]['highlight2-subtitle'];
+  if (highlights[2]) highlights[2].textContent = translations[lang]['highlight3-title'];
+  if (highlightSubtitles[2]) highlightSubtitles[2].textContent = translations[lang]['highlight3-subtitle'];
+  if (highlights[3]) highlights[3].textContent = translations[lang]['highlight4-title'];
+  if (highlightSubtitles[3]) highlightSubtitles[3].textContent = translations[lang]['highlight4-subtitle'];
+  if (highlights[4]) highlights[4].textContent = translations[lang]['highlight5-title'];
+  if (highlightSubtitles[4]) highlightSubtitles[4].textContent = translations[lang]['highlight5-subtitle'];
+  
+  // Projects Title
+  const projectsTitle = document.querySelector('#projeto h2');
+  if (projectsTitle) projectsTitle.textContent = translations[lang]['projects-title'];
+  
+  // Project Cards
+  const projectCards = document.querySelectorAll('.project-card-info');
+  if (projectCards[0]) {
+    const h3 = projectCards[0].querySelector('h3');
+    const p = projectCards[0].querySelector('p');
+    if (h3) h3.textContent = translations[lang]['project1-title'];
+    if (p) p.textContent = translations[lang]['project1-description'];
+  }
+  if (projectCards[1]) {
+    const h3 = projectCards[1].querySelector('h3');
+    const p = projectCards[1].querySelector('p');
+    if (h3) h3.textContent = translations[lang]['project2-title'];
+    if (p) p.textContent = translations[lang]['project2-description'];
+  }
+  
+  // Skills
+  const skillsTitle = document.querySelector('#skills h2');
+  if (skillsTitle) {
+    const originalText = skillsTitle.textContent.trim();
+    if (originalText === 'Conhecimentos na Área de TI' || originalText === 'IT Knowledge & Skills') {
+      skillsTitle.textContent = translations[lang]['skills-title-alt'];
+    } else {
+      skillsTitle.textContent = translations[lang]['skills-title'];
+    }
+  }
+  
+  // Skill levels
+  document.querySelectorAll('.skill-level').forEach(level => {
+    const text = level.textContent.trim();
+    if (text === 'Básico' || text === 'Basic') level.textContent = translations[lang]['skill-level-basic'];
+    if (text === 'Intermediário' || text === 'Intermediary') level.textContent = translations[lang]['skill-level-intermediary'];
+    if (text === 'Regular') level.textContent = translations[lang]['skill-level-regular'];
+    if (text === 'Avançado' || text === 'Advanced') level.textContent = translations[lang]['skill-level-advanced'];
+    if (text === 'Bom' || text === 'Good') level.textContent = translations[lang]['skill-level-good'];
+  });
+  
+  // Skill categories
+  const skillCategories = document.querySelectorAll('.skill-category h3');
+  if (skillCategories[0]) skillCategories[0].textContent = translations[lang]['skill-category-programming'];
+  if (skillCategories[1]) skillCategories[1].textContent = translations[lang]['skill-category-development'];
+  if (skillCategories[2]) skillCategories[2].textContent = translations[lang]['skill-category-database'];
+  if (skillCategories[3]) skillCategories[3].textContent = translations[lang]['skill-category-methodologies'];
+  
+  // Database features
+  const dbFeatures = document.querySelectorAll('.skill-features .feature-item');
+  if (dbFeatures[0]) dbFeatures[0].textContent = translations[lang]['skill-db-procedures'];
+  if (dbFeatures[1]) dbFeatures[1].textContent = translations[lang]['skill-db-functions'];
+  if (dbFeatures[2]) dbFeatures[2].textContent = translations[lang]['skill-db-triggers'];
+  
+  // Download CV button
+  const downloadCvBtn = document.querySelector('.download-cv');
+  if (downloadCvBtn) downloadCvBtn.textContent = translations[lang]['download-cv'];
+  
+  // Project Modals - FUT360
+  const fut360About = document.querySelectorAll('#projectModal1 .project-modal-info h3');
+  const fut360Description = document.querySelector('#projectModal1 .project-modal-info p');
+  const fut360Features = document.querySelectorAll('#projectModal1 .project-modal-info ul li');
+  
+  if (fut360About[0]) fut360About[0].textContent = translations[lang]['modal-about'];
+  if (fut360About[1]) fut360About[1].textContent = translations[lang]['modal-features'];
+  if (fut360About[2]) fut360About[2].textContent = translations[lang]['modal-tech'];
+  if (fut360Description) fut360Description.textContent = translations[lang]['fut360-description'];
+  if (fut360Features[0]) fut360Features[0].textContent = translations[lang]['fut360-f1'];
+  if (fut360Features[1]) fut360Features[1].textContent = translations[lang]['fut360-f2'];
+  if (fut360Features[2]) fut360Features[2].textContent = translations[lang]['fut360-f3'];
+  if (fut360Features[3]) fut360Features[3].textContent = translations[lang]['fut360-f4'];
+  if (fut360Features[4]) fut360Features[4].textContent = translations[lang]['fut360-f5'];
+  
+  // Project Modals - RPG
+  const rpgAbout = document.querySelectorAll('#projectModal2 .project-modal-info h3');
+  const rpgDescription = document.querySelector('#projectModal2 .project-modal-info p');
+  const rpgFeatures = document.querySelectorAll('#projectModal2 .project-modal-info ul li');
+  
+  if (rpgAbout[0]) rpgAbout[0].textContent = translations[lang]['modal-about'];
+  if (rpgAbout[1]) rpgAbout[1].textContent = translations[lang]['modal-features'];
+  if (rpgAbout[2]) rpgAbout[2].textContent = translations[lang]['modal-tech'];
+  if (rpgDescription) rpgDescription.textContent = translations[lang]['rpg-description'];
+  if (rpgFeatures[0]) rpgFeatures[0].textContent = translations[lang]['rpg-f1'];
+  if (rpgFeatures[1]) rpgFeatures[1].textContent = translations[lang]['rpg-f2'];
+  if (rpgFeatures[2]) rpgFeatures[2].textContent = translations[lang]['rpg-f3'];
+  if (rpgFeatures[3]) rpgFeatures[3].textContent = translations[lang]['rpg-f4'];
+  if (rpgFeatures[4]) rpgFeatures[4].textContent = translations[lang]['rpg-f5'];
+  
+  // Formation
+  const formationTitle = document.querySelector('#formacao h2');
+  if (formationTitle) formationTitle.textContent = translations[lang]['formation-title'];
+  
+  const formationItems = document.querySelectorAll('.timeline-item');
+  if (formationItems[0]) {
+    const h3 = formationItems[0].querySelector('h3');
+    const place = formationItems[0].querySelector('.formation-place');
+    const date = formationItems[0].querySelector('.formation-date');
+    if (h3) h3.textContent = translations[lang]['formation1-title'];
+    if (place) place.textContent = translations[lang]['formation1-place'];
+    if (date) date.textContent = translations[lang]['formation1-date'];
+  }
+  if (formationItems[1]) {
+    const h3 = formationItems[1].querySelector('h3');
+    const place = formationItems[1].querySelector('.formation-place');
+    const date = formationItems[1].querySelector('.formation-date');
+    if (h3) h3.textContent = translations[lang]['formation2-title'];
+    if (place) place.textContent = translations[lang]['formation2-place'];
+    if (date) date.textContent = translations[lang]['formation2-date'];
+  }
+  if (formationItems[2]) {
+    const h3 = formationItems[2].querySelector('h3');
+    const place = formationItems[2].querySelector('.formation-place');
+    const date = formationItems[2].querySelector('.formation-date');
+    if (h3) h3.textContent = translations[lang]['formation3-title'];
+    if (place) place.textContent = translations[lang]['formation3-place'];
+    if (date) date.textContent = translations[lang]['formation3-date'];
+  }
+  if (formationItems[3]) {
+    const h3 = formationItems[3].querySelector('h3');
+    const place = formationItems[3].querySelector('.formation-place');
+    const date = formationItems[3].querySelector('.formation-date');
+    if (h3) h3.textContent = translations[lang]['formation4-title'];
+    if (place) place.textContent = translations[lang]['formation4-place'];
+    if (date) date.textContent = translations[lang]['formation4-date'];
+  }
+  
+  // Formation badge
+  const formationBadge = document.querySelector('.formation-badge');
+  if (formationBadge) formationBadge.textContent = translations[lang]['badge-ongoing'];
+  
+  // Contact
+  const contactTitle = document.querySelector('.contact-info h2');
+  if (contactTitle) {
+    contactTitle.innerHTML = `${translations[lang]['contact-title']}<br><span class=\"highlight\">${translations[lang]['contact-highlight']}</span>`;
+  }
+  
+  const contactSubtitle = document.querySelector('.contact-subtitle');
+  if (contactSubtitle) contactSubtitle.textContent = translations[lang]['contact-subtitle'];
+  
+  // Form
+  const nameInput = document.querySelector('input[name=\"name\"]');
+  const emailInput = document.querySelector('input[name=\"email\"]');
+  const messageInput = document.querySelector('textarea[name=\"message\"]');
+  const btnSend = document.querySelector('.btn-submit');
+  
+  if (nameInput) nameInput.placeholder = translations[lang]['form-name'];
+  if (emailInput) emailInput.placeholder = translations[lang]['form-email'];
+  if (messageInput) messageInput.placeholder = translations[lang]['form-message'];
+  if (btnSend) btnSend.textContent = translations[lang]['btn-send'];
+  
+  // Project buttons
+  document.querySelectorAll('.btn-project-details').forEach(btn => {
+    const svg = btn.querySelector('svg');
+    btn.textContent = translations[lang]['btn-details'];
+    if (svg) btn.appendChild(svg);
+  });
+
+  // Header download button
+  const headerDownload = document.querySelector('.btn-header');
+  if (headerDownload) headerDownload.textContent = lang === 'en' ? '📄 Download CV' : '📄 Baixar CV';
+}
+
+// Inicializa
+window.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => changeLanguage(currentLang), 100);
+  
+  const langToggle = document.getElementById('langToggle');
+  langToggle?.addEventListener('click', () => {
+    const newLang = currentLang === 'pt' ? 'en' : 'pt';
+    changeLanguage(newLang);
+  });
+});
+
 // ========== NAVBAR SCROLL EFFECT (OTIMIZADO) ==========
 const header = document.getElementById('header');
 let lastScroll = 0;

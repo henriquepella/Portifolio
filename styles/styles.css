@@ -619,9 +619,9 @@ body {
   z-index: 1;
 }
 
-.stat-label-percent::after {
+.stat-number[data-target="100"]::after {
   content: '%';
-  margin-left: -0.3em;
+  margin-left: 0.2em;
 }
 
 /* ========== SOBRE ========== */
@@ -1783,6 +1783,49 @@ body.light-mode .theme-toggle .sun-icon {
 body.light-mode .theme-toggle .moon-icon {
   opacity: 0;
   transform: rotate(-180deg) scale(0);
+}
+
+/* ========== LANGUAGE TOGGLE ========== */
+.lang-toggle {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  height: 40px;
+  padding: 0 var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  transition: all var(--duration-base) var(--ease-out);
+  margin-left: var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.lang-toggle:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+
+.lang-toggle:active {
+  transform: translateY(0);
+}
+
+.lang-toggle .flag-icon {
+  font-size: var(--text-lg);
+  line-height: 1;
+  transition: transform var(--duration-base) var(--ease-bounce);
+}
+
+.lang-toggle:hover .flag-icon {
+  transform: scale(1.2) rotate(10deg);
+}
+
+.lang-toggle .lang-text {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.05em;
 }
 
 /* ========== FLOATING CONTACT BUTTON ========== */
