@@ -251,10 +251,33 @@ function changeLanguage(lang) {
   const langText = langToggle?.querySelector('.lang-text');
   
   if (lang === 'en') {
-    if (flagIcon) flagIcon.textContent = '🇺🇸';
+    if (flagIcon) {
+      flagIcon.innerHTML = `
+        <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="20" height="14" fill="#B22234"/>
+          <rect width="20" height="1.077" fill="white"/>
+          <rect y="2.154" width="20" height="1.077" fill="white"/>
+          <rect y="4.308" width="20" height="1.077" fill="white"/>
+          <rect y="6.462" width="20" height="1.077" fill="white"/>
+          <rect y="8.615" width="20" height="1.077" fill="white"/>
+          <rect y="10.769" width="20" height="1.077" fill="white"/>
+          <rect y="12.923" width="20" height="1.077" fill="white"/>
+          <rect width="8" height="7.538" fill="#3C3B6E"/>
+        </svg>
+      `;
+    }
     if (langText) langText.textContent = 'EN';
   } else {
-    if (flagIcon) flagIcon.textContent = '🇧🇷';
+    if (flagIcon) {
+      flagIcon.innerHTML = `
+        <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="20" height="14" fill="#009B3A"/>
+          <path d="M10 1.5L17 7L10 12.5L3 7L10 1.5Z" fill="#FEDF00"/>
+          <circle cx="10" cy="7" r="2.8" fill="#002776"/>
+          <path d="M7.5 7C7.5 6.5 8 5.5 10 5.5C12 5.5 12.5 6.5 12.5 7" stroke="white" stroke-width="0.4" fill="none"/>
+        </svg>
+      `;
+    }
     if (langText) langText.textContent = 'PT';
   }
   
