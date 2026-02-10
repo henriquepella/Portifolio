@@ -304,6 +304,41 @@ function changeLanguage(lang) {
   if (btnContact) btnContact.textContent = translations[lang]['btn-contact'];
   if (btnDownload) btnDownload.textContent = translations[lang]['btn-download'];
   
+  // CV/Resume Download Links
+  const cvBtnHeader = document.getElementById('cvBtnHeader');
+  const cvBtnHero = document.getElementById('cvBtnHero');
+  const cvBtnContact = document.getElementById('cvBtnContact');
+  
+  if (lang === 'en') {
+    // English - Use CV.pdf
+    if (cvBtnHeader) {
+      cvBtnHeader.href = 'assets/CV.pdf';
+      cvBtnHeader.download = 'Henrique_Pella_CV.pdf';
+    }
+    if (cvBtnHero) {
+      cvBtnHero.href = 'assets/CV.pdf';
+      cvBtnHero.download = 'Henrique_Pella_CV.pdf';
+    }
+    if (cvBtnContact) {
+      cvBtnContact.href = 'assets/CV.pdf';
+      cvBtnContact.download = 'Henrique_Pella_CV.pdf';
+    }
+  } else {
+    // Portuguese - Use Curriculo BR.pdf
+    if (cvBtnHeader) {
+      cvBtnHeader.href = 'assets/Curriculo%20BR.pdf';
+      cvBtnHeader.download = 'Curriculo_Henrique_Pella.pdf';
+    }
+    if (cvBtnHero) {
+      cvBtnHero.href = 'assets/Curriculo%20BR.pdf';
+      cvBtnHero.download = 'Curriculo_Henrique_Pella.pdf';
+    }
+    if (cvBtnContact) {
+      cvBtnContact.href = 'assets/Curriculo%20BR.pdf';
+      cvBtnContact.download = 'Curriculo_Henrique_Pella.pdf';
+    }
+  }
+  
   // Stats
   const statLabels = document.querySelectorAll('.stat-label');
   const statKeys = ['stat-xp', 'stat-projects', 'stat-tech', 'stat-dedication'];
@@ -498,47 +533,6 @@ function changeLanguage(lang) {
     btn.textContent = translations[lang]['btn-details'];
     if (svg) btn.appendChild(svg);
   });
-
-  // Download buttons - Change file based on language
-  const headerDownload = document.querySelector('.btn-header');
-  const heroDownload = document.querySelector('.hero-cta .btn-secondary');
-  const contactDownload = document.querySelector('.download-cv');
-  
-  if (lang === 'en') {
-    // English CV
-    if (headerDownload) {
-      headerDownload.textContent = '📄 Download CV';
-      headerDownload.href = 'assets/HENRIQUE%20PELLA%20CV.pdf';
-      headerDownload.setAttribute('download', 'HENRIQUE PELLA CV.pdf');
-    }
-    if (heroDownload) {
-      heroDownload.textContent = translations[lang]['btn-download'];
-      heroDownload.href = 'assets/HENRIQUE%20PELLA%20CV.pdf';
-      heroDownload.setAttribute('download', 'HENRIQUE PELLA CV.pdf');
-    }
-    if (contactDownload) {
-      contactDownload.textContent = translations[lang]['download-cv'];
-      contactDownload.href = 'assets/HENRIQUE%20PELLA%20CV.pdf';
-      contactDownload.setAttribute('download', 'HENRIQUE PELLA CV.pdf');
-    }
-  } else {
-    // Portuguese CV
-    if (headerDownload) {
-      headerDownload.textContent = '📄 Baixar CV';
-      headerDownload.href = 'assets/HENRIQUE%20AGUIAR%20DE%20SOUZA%20PELLA.pdf';
-      headerDownload.setAttribute('download', 'Curriculo Henrique Aguiar de Souza Pella.pdf');
-    }
-    if (heroDownload) {
-      heroDownload.textContent = translations[lang]['btn-download'];
-      heroDownload.href = 'assets/HENRIQUE%20AGUIAR%20DE%20SOUZA%20PELLA.pdf';
-      heroDownload.setAttribute('download', 'Curriculo Henrique Aguiar de Souza Pella.pdf');
-    }
-    if (contactDownload) {
-      contactDownload.textContent = translations[lang]['download-cv'];
-      contactDownload.href = 'assets/HENRIQUE%20AGUIAR%20DE%20SOUZA%20PELLA.pdf';
-      contactDownload.setAttribute('download', 'Curriculo Henrique Aguiar de Souza Pella.pdf');
-    }
-  }
 }
 
 // Inicializa
