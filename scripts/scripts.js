@@ -310,32 +310,32 @@ function changeLanguage(lang) {
   const cvBtnContact = document.getElementById('cvBtnContact');
   
   if (lang === 'en') {
-    // English - Use CV.pdf
+    // English - Use Henrique_Pella_Software_Development_Internship.pdf
     if (cvBtnHeader) {
-      cvBtnHeader.href = 'assets/CV.pdf';
-      cvBtnHeader.download = 'Henrique_Pella_CV.pdf';
+      cvBtnHeader.href = 'assets/Henrique_Pella_Software_Development_Internship.pdf';
+      cvBtnHeader.download = 'Henrique_Pella_Software_Development_Internship.pdf';
     }
     if (cvBtnHero) {
-      cvBtnHero.href = 'assets/CV.pdf';
-      cvBtnHero.download = 'Henrique_Pella_CV.pdf';
+      cvBtnHero.href = 'assets/Henrique_Pella_Software_Development_Internship.pdf';
+      cvBtnHero.download = 'Henrique_Pella_Software_Development_Internship.pdf';
     }
     if (cvBtnContact) {
-      cvBtnContact.href = 'assets/CV.pdf';
-      cvBtnContact.download = 'Henrique_Pella_CV.pdf';
+      cvBtnContact.href = 'assets/Henrique_Pella_Software_Development_Internship.pdf';
+      cvBtnContact.download = 'Henrique_Pella_Software_Development_Internship.pdf';
     }
   } else {
-    // Portuguese - Use Curriculo BR.pdf
+    // Portuguese - Use Henrique_Pella_Estagio_Desenvolvimento_Software.pdf
     if (cvBtnHeader) {
-      cvBtnHeader.href = 'assets/Curriculo%20BR.pdf';
-      cvBtnHeader.download = 'Curriculo_Henrique_Pella.pdf';
+      cvBtnHeader.href = 'assets/Henrique_Pella_Estagio_Desenvolvimento_Software.pdf';
+      cvBtnHeader.download = 'Henrique_Pella_Estagio_Desenvolvimento_Software.pdf';
     }
     if (cvBtnHero) {
-      cvBtnHero.href = 'assets/Curriculo%20BR.pdf';
-      cvBtnHero.download = 'Curriculo_Henrique_Pella.pdf';
+      cvBtnHero.href = 'assets/Henrique_Pella_Estagio_Desenvolvimento_Software.pdf';
+      cvBtnHero.download = 'Henrique_Pella_Estagio_Desenvolvimento_Software.pdf';
     }
     if (cvBtnContact) {
-      cvBtnContact.href = 'assets/Curriculo%20BR.pdf';
-      cvBtnContact.download = 'Curriculo_Henrique_Pella.pdf';
+      cvBtnContact.href = 'assets/Henrique_Pella_Estagio_Desenvolvimento_Software.pdf';
+      cvBtnContact.download = 'Henrique_Pella_Estagio_Desenvolvimento_Software.pdf';
     }
   }
   
