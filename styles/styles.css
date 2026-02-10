@@ -79,28 +79,28 @@
 /* Light Mode - Design System */
 body.light-mode {
   --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --bg-card: #ffffff;
-  --text-primary: #1a1a25;
-  --text-secondary: #6b7280;
-  --text-tertiary: #9ca3af;
+  --bg-secondary: #f3f4f6;
+  --bg-card: #f9fafb;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-tertiary: #6b7280;
   --accent: #8b5cf6;
   --accent-hover: #7c3aed;
   --accent-light: #a78bfa;
-  --accent-glow: rgba(139, 92, 246, 0.3);
+  --accent-glow: rgba(139, 92, 246, 0.4);
   --green: #10b981;
   --success: #10b981;
   --error: #ef4444;
   
   --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(0, 0, 0, 0.1);
+  --glass-border: rgba(0, 0, 0, 0.25);
   
-  /* Light mode shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  /* Light mode shadows - extremamente pronunciadas */
+  --shadow-sm: 0 2px 6px 0 rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 4px 16px -1px rgba(0, 0, 0, 0.22), 0 2px 8px -1px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 10px 30px -3px rgba(0, 0, 0, 0.25), 0 4px 12px -2px rgba(0, 0, 0, 0.18);
+  --shadow-xl: 0 20px 50px -5px rgba(0, 0, 0, 0.25), 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
   --shadow-accent: 0 10px 30px -5px var(--accent-glow);
 }
 
@@ -1814,9 +1814,18 @@ body.light-mode .theme-toggle .moon-icon {
 }
 
 .lang-toggle .flag-icon {
-  font-size: var(--text-lg);
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: transform var(--duration-base) var(--ease-bounce);
+  width: 20px;
+  height: 14px;
+}
+
+.lang-toggle .flag-icon svg {
+  width: 20px;
+  height: 14px;
+  display: block;
 }
 
 .lang-toggle:hover .flag-icon {
@@ -2488,7 +2497,9 @@ body.light-mode .skill-category,
 body.light-mode .formation-card,
 body.light-mode .project-card,
 body.light-mode .highlight-item {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  background: white;
+  border: 2.5px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15), 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 body.light-mode .project-card:hover,
@@ -2498,13 +2509,15 @@ body.light-mode .hero {
 
 /* Light Mode - Stats cards */
 body.light-mode .stat-card {
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background: white;
+  border: 2.5px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15), 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 body.light-mode .stat-card:hover {
-  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
-  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 12px 45px rgba(139, 92, 246, 0.35), 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-color: rgba(139, 92, 246, 0.6);
+  transform: translateY(-4px);
 }
 
 /* Light Mode - Timeline */
@@ -2513,13 +2526,15 @@ body.light-mode .timeline::before {
 }
 
 body.light-mode .timeline-content {
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background: white;
+  border: 2.5px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15), 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 body.light-mode .timeline-content:hover {
-  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.15);
-  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.3), 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-color: rgba(139, 92, 246, 0.6);
+  transform: translateY(-2px);
 }
 
 body.light-mode .timeline-marker {
@@ -2528,64 +2543,76 @@ body.light-mode .timeline-marker {
 
 /* Light Mode - Hero Title com contraste adequado */
 body.light-mode .hero-title {
-  background: linear-gradient(135deg, #1a1a25 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, #111827 0%, #6d28d9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-weight: 900;
 }
 
 /* Light Mode - Hero Badge */
 body.light-mode .hero-badge {
-  background: rgba(16, 185, 129, 0.12);
-  border: 1px solid rgba(16, 185, 129, 0.4);
+  background: rgba(16, 185, 129, 0.15);
+  border: 2px solid rgba(16, 185, 129, 0.5);
+  color: #047857;
+  font-weight: 600;
 }
 
 /* Light Mode - Nav Links melhorados */
 body.light-mode .nav-link {
-  color: var(--text-secondary);
+  color: #374151;
+  font-weight: 600;
 }
 
 body.light-mode .nav-link:hover {
-  color: var(--text-primary);
+  color: #111827;
+  font-weight: 700;
 }
 
 /* Light Mode - Cards com melhor contraste */
 body.light-mode .project-card,
 body.light-mode .skill-category,
 body.light-mode .formation-card {
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background: white;
+  border: 2.5px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15), 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 body.light-mode .project-card:hover,
 body.light-mode .skill-category:hover,
 body.light-mode .formation-card:hover {
-  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
-  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 12px 45px rgba(139, 92, 246, 0.35), 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-color: rgba(139, 92, 246, 0.6);
+  transform: translateY(-4px);
 }
 
 /* Light Mode - Header mais visível */
 body.light-mode .header {
-  background: rgba(255, 255, 255, 0.85);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.98);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 body.light-mode .header.scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  border-bottom-color: rgba(0, 0, 0, 0.15);
 }
 
 /* Light Mode - Social icons com melhor visibilidade */
 body.light-mode .social-link {
-  background: rgba(139, 92, 246, 0.08);
-  color: var(--text-primary);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: rgba(139, 92, 246, 0.1);
+  color: #6d28d9;
+  border: 2px solid rgba(139, 92, 246, 0.3);
+  font-weight: 600;
 }
 
 body.light-mode .social-link:hover {
   background: var(--accent);
   color: white;
   border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.3);
+  transform: translateY(-2px);
 }
 
 /* Light Mode - Form com contraste */
@@ -2646,9 +2673,10 @@ body.light-mode .modal-close:hover {
 body.light-mode .project-tags span,
 body.light-mode .tech-tags span,
 body.light-mode .skill-tags-detailed .tag-highlight {
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.25);
-  color: #7c3aed;
+  background: rgba(139, 92, 246, 0.12);
+  border: 2px solid rgba(139, 92, 246, 0.35);
+  color: #6d28d9;
+  font-weight: 600;
 }
 
 body.light-mode .project-tags span:hover,
@@ -2657,22 +2685,37 @@ body.light-mode .skill-tags-detailed .tag-highlight:hover {
   background: var(--accent);
   color: white;
   border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
 }
 
 /* Light Mode - About section */
 body.light-mode .about-card {
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background: white;
+  border: 2.5px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15), 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 body.light-mode .about-card:hover {
-  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.15);
-  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.3), 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-color: rgba(139, 92, 246, 0.6);
+  transform: translateY(-2px);
 }
 
 /* Light Mode - Skill bars */
 body.light-mode .skill-bar {
-  background: rgba(0, 0, 0, 0.06);
+  background: #e5e7eb;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .skill-progress {
+  box-shadow: 0 1px 3px rgba(139, 92, 246, 0.3);
+}
+
+body.light-mode .skill-name {
+  color: #111827 !important;
+  font-weight: 600;
 }
 
 body.light-mode .skill-progress {
@@ -2682,13 +2725,13 @@ body.light-mode .skill-progress {
 /* Light Mode - Contact cards */
 body.light-mode .contact-card {
   background: white;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 2.5px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15), 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 body.light-mode .contact-card:hover {
-  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.15);
-  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.3), 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-color: rgba(139, 92, 246, 0.6);
   transform: translateY(-4px);
 }
 
@@ -2703,34 +2746,42 @@ body.light-mode .floating-contact-btn:hover {
 
 /* Light Mode - Theme toggle */
 body.light-mode .theme-toggle {
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: white;
+  border: 2px solid rgba(0, 0, 0, 0.15);
   color: var(--text-primary);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 body.light-mode .theme-toggle:hover {
-  background: rgba(139, 92, 246, 0.15);
-  border-color: rgba(139, 92, 246, 0.3);
+  background: rgba(139, 92, 246, 0.08);
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+  transform: translateY(-2px);
 }
 
 /* Light Mode - Botões com estados claros */
 body.light-mode .btn-primary {
-  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+  border: 2px solid transparent;
 }
 
 body.light-mode .btn-primary:hover {
-  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.45);
+  transform: translateY(-2px);
 }
 
 body.light-mode .btn-secondary {
   background: rgba(139, 92, 246, 0.1);
-  color: var(--accent);
-  border: 1px solid rgba(139, 92, 246, 0.25);
+  color: #6d28d9;
+  border: 2px solid rgba(139, 92, 246, 0.35);
+  font-weight: 600;
 }
 
 body.light-mode .btn-secondary:hover {
   background: rgba(139, 92, 246, 0.15);
-  border-color: rgba(139, 92, 246, 0.4);
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
+  transform: translateY(-2px);
 }
 
 /* Light Mode - Project overlay mantém gradiente e contraste */
@@ -2763,7 +2814,174 @@ body.light-mode h1,
 body.light-mode h2,
 body.light-mode h3,
 body.light-mode h4 {
-  color: var(--text-primary);
+  color: #111827;
+  font-weight: 800;
+}
+
+/* Light Mode - Section titles mais visíveis */
+body.light-mode .section-title-center {
+  color: #111827;
+  font-weight: 900;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Light Mode - Stats section com fundo diferenciado */
+body.light-mode .stats-section {
+  background: #f3f4f6;
+  border-top: 2px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* Light Mode - Highlight items mais visíveis */
+body.light-mode .highlight-item {
+  background: white;
+  border: 2.5px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Light Mode - Lang toggle mais visível */
+body.light-mode .lang-toggle {
+  background: white;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .lang-toggle:hover {
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Light Mode - Skill levels mais visíveis */
+body.light-mode .skill-level {
+  background: rgba(139, 92, 246, 0.12);
+  border: 2px solid rgba(139, 92, 246, 0.4);
+  color: #6d28d9;
+  font-weight: 700;
+}
+
+/* Light Mode - Skill category headers */
+body.light-mode .skill-category h3 {
+  color: #111827;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+/* Light Mode - Formation cards ainda mais visíveis */
+body.light-mode .formation-card,
+body.light-mode .formation-card.main {
+  background: white !important;
+  border: 2.5px solid rgba(0, 0, 0, 0.22) !important;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.16), 0 3px 12px rgba(0, 0, 0, 0.12) !important;
+}
+
+body.light-mode .formation-card h3,
+body.light-mode .formation-card h4 {
+  color: #111827 !important;
+  font-weight: 700;
+}
+
+body.light-mode .formation-card p {
+  color: #4b5563 !important;
+}
+
+/* Light Mode - About card com contraste máximo */
+body.light-mode .about-card,
+body.light-mode .about-content {
+  background: white !important;
+}
+
+body.light-mode .about-card h2,
+body.light-mode .about-card h3 {
+  color: #111827 !important;
+  font-weight: 800;
+}
+
+body.light-mode .about-card p,
+body.light-mode .about-card li {
+  color: #374151 !important;
+  line-height: 1.7;
+}
+
+/* Light Mode - Seções alternadas com fundos diferentes para melhor separação */
+body.light-mode section:nth-child(even) {
+  background: #fafbfc;
+}
+
+body.light-mode section:nth-child(odd) {
+  background: white;
+}
+
+/* Light Mode - Todos os títulos de seções mais visíveis */
+body.light-mode .section h2,
+body.light-mode .section h3 {
+  color: #111827 !important;
+  font-weight: 800;
+}
+
+/* Light Mode - Garantir que todos os cards tenham borda visível */
+body.light-mode [class*="card"],
+body.light-mode .highlight-item,
+body.light-mode .timeline-content {
+  border-width: 2.5px !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Light Mode - Ícones e emojis mais visíveis */
+body.light-mode .stat-icon,
+body.light-mode .formation-icon {
+  filter: brightness(0.8) contrast(1.2);
+  font-size: 1.2em;
+}
+
+/* Light Mode - Textos dentro de cards */
+body.light-mode .card h3,
+body.light-mode .card h4,
+body.light-mode [class*="card"] h3,
+body.light-mode [class*="card"] h4 {
+  color: #111827 !important;
+  font-weight: 700;
+}
+
+body.light-mode .card p,
+body.light-mode [class*="card"] p {
+  color: #4b5563 !important;
+}
+
+/* Light Mode - Project cards com destaque máximo */
+body.light-mode .project-card h3,
+body.light-mode .project-card .project-title {
+  color: #111827 !important;
+  font-weight: 700;
+}
+
+body.light-mode .project-card .project-description {
+  color: #4b5563 !important;
+  line-height: 1.6;
+}
+
+body.light-mode .project-card img {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Light Mode - Badges e elementos de destaque */
+body.light-mode .formation-badge,
+body.light-mode .badge {
+  background: #10b981 !important;
+  color: white !important;
+  border: 1px solid #059669;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+/* Light Mode - Garantir contraste em todos os elementos */
+body.light-mode * {
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+body.light-mode .section {
+  border: none;
 }
 
 /* ========== SMOOTH TRANSITIONS (GLOBAL) ========== */
