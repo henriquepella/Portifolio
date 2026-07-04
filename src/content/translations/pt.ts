@@ -43,14 +43,12 @@ export const pt: Dictionary = {
   },
   skills: {
     eyebrow: "Skills",
-    heading: "Tecnologias que domino",
+    heading: "Tecnologias que utilizo",
     description:
       "Ferramentas e tecnologias que utilizo para construir soluções completas.",
-    categories: {
-      languages: "Linguagens",
-      frameworks: "Frameworks",
-      databases: "Banco de Dados",
-      tools: "Ferramentas",
+    groups: {
+      solid: "Sólido",
+      learning: "Em aprendizado",
     },
   },
   projects: {
@@ -69,7 +67,7 @@ export const pt: Dictionary = {
   },
   github: {
     eyebrow: "GitHub",
-    heading: "Contribuições open source",
+    heading: "Atividade no GitHub",
     description:
       "Minha atividade no GitHub: contribuições, linguagens mais usadas e consistência.",
     contributions: "Calendário de contribuições",

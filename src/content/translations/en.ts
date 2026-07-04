@@ -45,11 +45,9 @@ export const en: Dictionary = {
     heading: "Technologies I work with",
     description:
       "Tools and technologies I use to build complete solutions.",
-    categories: {
-      languages: "Languages",
-      frameworks: "Frameworks",
-      databases: "Databases",
-      tools: "Tools",
+    groups: {
+      solid: "Solid",
+      learning: "Currently learning",
     },
   },
   projects: {
@@ -68,7 +66,7 @@ export const en: Dictionary = {
   },
   github: {
     eyebrow: "GitHub",
-    heading: "Open source contributions",
+    heading: "GitHub activity",
     description:
       "My GitHub activity: contributions, most used languages and consistency.",
     contributions: "Contribution calendar",

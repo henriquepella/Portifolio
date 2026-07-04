@@ -46,11 +46,9 @@ export interface Dictionary {
     eyebrow: string;
     heading: string;
     description: string;
-    categories: {
-      languages: string;
-      frameworks: string;
-      databases: string;
-      tools: string;
+    groups: {
+      solid: string;
+      learning: string;
     };
   };
   projects: {
@@ -153,7 +151,8 @@ export interface Project {
   technologies: string[];
   cover: string;
   gallery: { src: string; alt: Localized }[];
-  githubUrl: string;
+  /** Omit for private repositories — the GitHub button is hidden. */
+  githubUrl?: string;
   demoUrl?: string;
 }
 
@@ -172,8 +171,8 @@ export interface Skill {
   color: string;
 }
 
-export interface SkillCategory {
-  id: "languages" | "frameworks" | "databases" | "tools";
+export interface SkillGroup {
+  id: "solid" | "learning";
   icon: LucideIcon;
   skills: Skill[];
 }

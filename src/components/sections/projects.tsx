@@ -59,21 +59,23 @@ export function Projects() {
                     <h3 className="text-xl font-semibold tracking-tight transition-colors group-hover:text-primary">
                       {project.title}
                     </h3>
-                    <Button
-                      asChild
-                      variant="ghost"
-                      size="icon-sm"
-                      className="shrink-0 text-muted-foreground hover:text-primary"
-                    >
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${project.title} — GitHub`}
+                    {project.githubUrl ? (
+                      <Button
+                        asChild
+                        variant="ghost"
+                        size="icon-sm"
+                        className="shrink-0 text-muted-foreground hover:text-primary"
                       >
-                        <FaGithub className="size-4" />
-                      </a>
-                    </Button>
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${project.title} — GitHub`}
+                        >
+                          <FaGithub className="size-4" />
+                        </a>
+                      </Button>
+                    ) : null}
                   </div>
 
                   <p className="flex-1 text-sm leading-relaxed text-muted-foreground">

@@ -45,9 +45,12 @@ export function ProjectDialog({ project, onOpenChange }: ProjectDialogProps) {
 
   return (
     <Dialog open={project !== null} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[88svh] gap-0 overflow-y-auto p-0 sm:max-w-3xl">
+      {/* Scrolling lives in an inner wrapper: DialogContent is a grid, and a
+          height-capped grid squeezes the cover row, making the image overlap
+          the text below. */}
+      <DialogContent className="p-0 sm:max-w-3xl">
         {project ? (
-          <>
+          <div className="max-h-[88svh] overflow-y-auto rounded-xl">
             <div className="relative aspect-video w-full overflow-hidden">
               <Image
                 src={project.cover}
@@ -123,32 +126,39 @@ export function ProjectDialog({ project, onOpenChange }: ProjectDialogProps) {
                 </div>
               ) : null}
 
-              <div className="flex flex-wrap gap-3 border-t border-border pt-6">
-                <Button asChild className="gap-2">
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaGithub data-icon="inline-start" className="size-4" />
-                    {dict.projects.github}
-                  </a>
-                </Button>
-                {project.demoUrl ? (
-                  <Button asChild variant="outline" className="gap-2">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ExternalLink data-icon="inline-start" className="size-4" />
-                      {dict.projects.demo}
-                    </a>
-                  </Button>
-                ) : null}
-              </div>
+              {project.githubUrl || project.demoUrl ? (
+                <div className="flex flex-wrap gap-3 border-t border-border pt-6">
+                  {project.githubUrl ? (
+                    <Button asChild className="gap-2">
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FaGithub data-icon="inline-start" className="size-4" />
+                        {dict.projects.github}
+                      </a>
+                    </Button>
+                  ) : null}
+                  {project.demoUrl ? (
+                    <Button asChild variant="outline" className="gap-2">
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink
+                          data-icon="inline-start"
+                          className="size-4"
+                        />
+                        {dict.projects.demo}
+                      </a>
+                    </Button>
+                  ) : null}
+                </div>
+              ) : null}
             </div>
-          </>
+          </div>
         ) : null}
       </DialogContent>
     </Dialog>
