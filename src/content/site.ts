@@ -17,8 +17,8 @@ export const siteConfig = {
   },
   whatsappDisplay: "(19) 99737-8470",
   cv: {
-    pt: "/cv/Henrique_Pella_Estagio_Desenvolvimento_Software.pdf",
-    en: "/cv/Henrique_Pella_Software_Development_Internship.pdf",
+    pt: "/cv/Curriculo_Henrique_Pella_PT.pdf",
+    en: "/cv/Resume_Henrique_Pella_EN.pdf",
   } satisfies Record<Locale, string>,
 } as const;
 

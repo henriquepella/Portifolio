@@ -3,6 +3,19 @@ import type { TimelineItem } from "@/types/content";
 /** Reverse-chronological — most recent first. */
 export const timeline: TimelineItem[] = [
   {
+    id: "aldino-freelance",
+    year: "2025",
+    period: { pt: "Fev 2025 – Concluído", en: "Feb 2025 – Completed" },
+    title: {
+      pt: "Desenvolvedor Freelancer — Projeto Aldino",
+      en: "Freelance Developer — Aldino Project",
+    },
+    place: {
+      pt: "Análise Geoespacial · Remoto",
+      en: "Geospatial Analysis · Remote",
+    },
+  },
+  {
     id: "puc-campinas",
     year: "2024",
     period: { pt: "2024 – 2027", en: "2024 – 2027" },

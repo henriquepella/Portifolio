@@ -2,6 +2,39 @@ import type { Project } from "@/types/content";
 
 export const projects: Project[] = [
   {
+    id: "aldino",
+    title: "Projeto Aldino",
+    description: {
+      pt: "Sistema de análise geoespacial em Python, desenvolvido como freelancer: processa dados urbanos multidimensionais e gera automaticamente mais de 50 visualizações analíticas e relatórios técnicos em PDF.",
+      en: "Geospatial analysis system built in Python as a freelance project: processes multidimensional urban data and automatically generates 50+ analytical visualizations and technical PDF reports.",
+    },
+    challenge: {
+      pt: "Transformar grandes volumes de dados urbanos multidimensionais em diagnósticos espaciais confiáveis, aplicando estatística espacial avançada e entregando resultados reproduzíveis em relatórios técnicos.",
+      en: "Turn large volumes of multidimensional urban data into reliable spatial diagnostics, applying advanced spatial statistics and delivering reproducible results as technical reports.",
+    },
+    solution: {
+      pt: "Pipeline em Python com GeoPandas e Pandas: análises espaciais exploratórias (ESDA, I de Moran, LISA local), interpolação espacial por Krigagem, IDW e regressão GWR, e geração automatizada de visualizações e relatórios PDF com Matplotlib e ReportLab.",
+      en: "Python pipeline with GeoPandas and Pandas: exploratory spatial analyses (ESDA, Moran's I, Local LISA), spatial interpolation with Kriging, IDW and GWR regression, and automated generation of visualizations and PDF reports with Matplotlib and ReportLab.",
+    },
+    learnings: {
+      pt: "Estatística espacial aplicada, interpolação geográfica, automação de relatórios e a prática de um projeto freelancer real — prazos, comunicação com cliente e entrega remota.",
+      en: "Applied spatial statistics, geographic interpolation, report automation and the practice of a real freelance project — deadlines, client communication and remote delivery.",
+    },
+    technologies: [
+      "Python",
+      "GeoPandas",
+      "Pandas",
+      "NumPy",
+      "SciPy",
+      "Matplotlib",
+      "ReportLab",
+      "PyKrige",
+    ],
+    cover: "/projects/aldino/cover.jpg",
+    gallery: [],
+    githubUrl: "https://github.com/henriquepella/aldino",
+  },
+  {
     id: "fut360",
     title: "Dashboard Fut360",
     description: {

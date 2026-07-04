@@ -1,4 +1,5 @@
 import { Code2, Database, Layers, Wrench } from "lucide-react";
+import { DiMsqlServer } from "react-icons/di";
 import { FaJava } from "react-icons/fa";
 import { GrOracle } from "react-icons/gr";
 import {
@@ -12,15 +13,19 @@ import {
   SiGithub,
   SiHtml5,
   SiJavascript,
+  SiKotlin,
   SiLinux,
   SiMongodb,
   SiMysql,
   SiNextdotjs,
   SiNodedotjs,
+  SiNumpy,
+  SiPandas,
   SiPostgresql,
   SiPostman,
   SiPython,
   SiReact,
+  SiScipy,
   SiSpringboot,
   SiTailwindcss,
   SiTypescript,
@@ -38,6 +43,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "TypeScript", icon: SiTypescript, color: "#3178c6" },
       { name: "C", icon: SiC, color: "#a8b9cc" },
       { name: "C++", icon: SiCplusplus, color: "#00599c" },
+      { name: "Kotlin", icon: SiKotlin, color: "#7f52ff" },
       { name: "HTML", icon: SiHtml5, color: "#e34f26" },
       { name: "CSS", icon: SiCss, color: "#663399" },
     ],
@@ -52,6 +58,9 @@ export const skillCategories: SkillCategory[] = [
       { name: "Express", icon: SiExpress, color: "var(--foreground)" },
       { name: "Spring Boot", icon: SiSpringboot, color: "#6db33f" },
       { name: "Tailwind", icon: SiTailwindcss, color: "#06b6d4" },
+      { name: "Pandas", icon: SiPandas, color: "var(--foreground)" },
+      { name: "NumPy", icon: SiNumpy, color: "#4d77cf" },
+      { name: "SciPy", icon: SiScipy, color: "#8caae6" },
     ],
   },
   {
@@ -61,6 +70,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "Oracle", icon: GrOracle, color: "#c74634" },
       { name: "PostgreSQL", icon: SiPostgresql, color: "#4169e1" },
       { name: "MySQL", icon: SiMysql, color: "#4479a1" },
+      { name: "SQL Server", icon: DiMsqlServer, color: "#cc2927" },
       { name: "MongoDB", icon: SiMongodb, color: "#47a248" },
     ],
   },
