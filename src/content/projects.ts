@@ -80,6 +80,54 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Kouqui/SI-PI4-2025-T101-G03",
   },
   {
+    id: "registro-riscos",
+    title: "App de Registro de Riscos",
+    description: {
+      pt: "Aplicativo Android nativo em Kotlin para reporte de riscos urbanos com localização, desenvolvido em equipe como Projeto Integrador na PUC Campinas. O usuário registra ocorrências com tipo, descrição, foto e localização e acompanha o status de cada uma no histórico.",
+      en: "Native Android app built in Kotlin for reporting urban risks with location, developed as a team Integrative Project at PUC Campinas. Users register occurrences with type, description, photo and location, and track each report's status in the history.",
+    },
+    challenge: {
+      pt: "Permitir que qualquer pessoa reporte riscos de forma rápida — com foto, localização e descrição — mantendo os dados sincronizados em tempo real entre os usuários e o status de cada ocorrência sempre atualizado.",
+      en: "Let anyone report risks quickly — with photo, location and description — while keeping data synchronized in real time across users and each report's status always up to date.",
+    },
+    solution: {
+      pt: "App Android nativo em Kotlin com ViewBinding, integrado ao Firebase: autenticação de usuários (Auth), sincronização das ocorrências em tempo real (Realtime Database), upload de fotos (Storage) e captura de localização via Google Play Services.",
+      en: "Native Android app in Kotlin with ViewBinding, integrated with Firebase: user authentication (Auth), real-time report synchronization (Realtime Database), photo uploads (Storage) and location capture via Google Play Services.",
+    },
+    learnings: {
+      pt: "Desenvolvimento Android nativo com Kotlin, integração de múltiplos serviços Firebase, uso de APIs de localização e colaboração em equipe com Git em um projeto de ciclo completo.",
+      en: "Native Android development with Kotlin, integrating multiple Firebase services, working with location APIs and team collaboration with Git on a full-cycle project.",
+    },
+    technologies: [
+      "Kotlin",
+      "Android",
+      "Firebase Auth",
+      "Realtime Database",
+      "Firebase Storage",
+      "Location Services",
+    ],
+    cover: "/projects/riscos/cover.png",
+    gallery: [
+      {
+        src: "/projects/riscos/cover.png",
+        alt: { pt: "Telas do aplicativo", en: "App screens" },
+      },
+      {
+        src: "/projects/riscos/registro.png",
+        alt: { pt: "Tela de registro de risco", en: "Risk report screen" },
+      },
+      {
+        src: "/projects/riscos/login.png",
+        alt: { pt: "Tela de login", en: "Login screen" },
+      },
+      {
+        src: "/projects/riscos/cadastro.png",
+        alt: { pt: "Tela de cadastro", en: "Sign-up screen" },
+      },
+    ],
+    githubUrl: "https://github.com/GuilhermePFA/ProjetoIntegrador_3_2025",
+  },
+  {
     id: "rpg-adventure",
     title: "RPG Adventure Game",
     description: {
