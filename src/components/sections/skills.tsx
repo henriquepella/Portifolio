@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useLocale } from "@/components/providers/locale-provider";
 import { Reveal } from "@/components/shared/reveal";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { skillCategories } from "@/content/skills";
+import { skillGroups } from "@/content/skills";
 
 export function Skills() {
   const { dict } = useLocale();
@@ -19,23 +19,23 @@ export function Skills() {
         />
 
         <div className="grid gap-6 md:grid-cols-2">
-          {skillCategories.map((category, categoryIndex) => (
+          {skillGroups.map((group, groupIndex) => (
             <Reveal
-              key={category.id}
-              delay={0.08 * categoryIndex}
+              key={group.id}
+              delay={0.08 * groupIndex}
               className="rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm transition-colors hover:border-primary/30"
             >
               <div className="mb-5 flex items-center gap-3">
                 <span className="flex size-10 items-center justify-center rounded-lg border border-primary/25 bg-primary/10 text-primary">
-                  <category.icon className="size-5" />
+                  <group.icon className="size-5" />
                 </span>
                 <h3 className="text-lg font-semibold">
-                  {dict.skills.categories[category.id]}
+                  {dict.skills.groups[group.id]}
                 </h3>
               </div>
 
               <div className="flex flex-wrap gap-2.5">
-                {category.skills.map((skill) => (
+                {group.skills.map((skill) => (
                   <motion.span
                     key={skill.name}
                     whileHover={{ y: -3 }}

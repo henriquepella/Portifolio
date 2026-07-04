@@ -32,7 +32,7 @@ export const projects: Project[] = [
     ],
     cover: "/projects/aldino/cover.jpg",
     gallery: [],
-    githubUrl: "https://github.com/henriquepella/aldino",
+    githubUrl: "https://github.com/henriquepella/Aldino2",
   },
   {
     id: "fut360",
@@ -77,7 +77,7 @@ export const projects: Project[] = [
         alt: { pt: "Relatórios e análises", en: "Reports and analytics" },
       },
     ],
-    githubUrl: "https://github.com/henriquepella",
+    githubUrl: "https://github.com/Kouqui/SI-PI4-2025-T101-G03",
   },
   {
     id: "rpg-adventure",
@@ -118,6 +118,6 @@ export const projects: Project[] = [
         alt: { pt: "Inventário", en: "Inventory" },
       },
     ],
-    githubUrl: "https://github.com/henriquepella",
+    // Repositório privado — sem githubUrl, o botão do GitHub fica oculto.
   },
 ];

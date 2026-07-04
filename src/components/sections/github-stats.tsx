@@ -28,9 +28,8 @@ const statsTheme =
   "hide_border=true&bg_color=00000000&text_color=94a3b8&title_color=8b5cf6&icon_color=a855f7";
 
 /**
- * External SVG widgets. Stats and top languages are rendered natively from
- * the GitHub API when data is available; these remain as the streak card and
- * as a fallback when the API could not be reached at build time.
+ * External SVG widgets, used only as a fallback when the GitHub API could
+ * not be reached at build time.
  */
 const widgets = [
   {
@@ -40,10 +39,6 @@ const widgets = [
   {
     id: "top-langs",
     src: `https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&langs_count=8&${statsTheme}`,
-  },
-  {
-    id: "streak",
-    src: `https://streak-stats.demolab.com?user=${username}&hide_border=true&background=00000000&ring=8b5cf6&fire=a855f7&currStreakLabel=8b5cf6&sideLabels=94a3b8&sideNums=8b5cf6&currStreakNum=a855f7&dates=64748b`,
   },
 ] as const;
 
@@ -75,11 +70,15 @@ function StatTiles({ data }: { data: GithubStatsData }) {
     tiles.push({ label: labels.pullRequests, value: data.pullRequests });
   }
 
+  // Métricas zeradas ficam ocultas — nada de expor "0 seguidores".
+  const visibleTiles = tiles.filter((tile) => tile.value > 0);
+  if (visibleTiles.length === 0) return null;
+
   return (
     <div className="w-full">
       <CardTitle>{dict.github.stats}</CardTitle>
       <div className="grid grid-cols-2 gap-3">
-        {tiles.map((tile) => (
+        {visibleTiles.map((tile) => (
           <div
             key={tile.label}
             className="rounded-lg border border-border/60 bg-background/40 p-3"
@@ -182,7 +181,6 @@ export function GithubStats({ data }: { data: GithubStatsData | null }) {
   const widgetTitles: Record<(typeof widgets)[number]["id"], string> = {
     stats: dict.github.stats,
     "top-langs": dict.github.topLanguages,
-    streak: dict.github.streak,
   };
 
   const cardClass =
@@ -216,7 +214,7 @@ export function GithubStats({ data }: { data: GithubStatsData | null }) {
           </div>
         </Reveal>
 
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
           {data ? (
             <Reveal className={cardClass}>
               <StatTiles data={data} />
@@ -241,12 +239,6 @@ export function GithubStats({ data }: { data: GithubStatsData | null }) {
               />
             </Reveal>
           )}
-          <Reveal
-            delay={0.16}
-            className={`flex items-center justify-center ${cardClass}`}
-          >
-            <StatsWidget src={widgets[2].src} title={widgetTitles.streak} />
-          </Reveal>
         </div>
 
         <Reveal delay={0.2} className="mt-8 flex justify-center">

@@ -4,6 +4,7 @@ import { GraduationCap, Terminal } from "lucide-react";
 import { useLocale } from "@/components/providers/locale-provider";
 import { Reveal } from "@/components/shared/reveal";
 import { SectionHeading } from "@/components/shared/section-heading";
+import { aboutStats } from "@/content/stats";
 import { useCountUp } from "@/hooks/use-count-up";
 
 interface Stat {
@@ -143,12 +144,14 @@ function CodeCard() {
 export function About() {
   const { dict } = useLocale();
 
-  const stats: Stat[] = [
-    { value: 8, prefix: "+", label: dict.about.stats.projects },
-    { value: 2, prefix: "+", label: dict.about.stats.years },
-    { value: 500, prefix: "+", label: dict.about.stats.commits },
-    { value: 16, label: dict.about.stats.technologies },
-  ];
+  // Valores editáveis em src/content/stats.ts; null fica oculto até preencher.
+  const stats: Stat[] = aboutStats
+    .filter((stat) => stat.value !== null)
+    .map((stat) => ({
+      value: stat.value as number,
+      prefix: stat.prefix,
+      label: dict.about.stats[stat.id],
+    }));
 
   return (
     <section id="sobre" className="section-padding">
