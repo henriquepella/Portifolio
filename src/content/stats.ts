@@ -1,6 +1,9 @@
+import { projects } from "./projects";
+
 /**
  * Números exibidos na seção "Sobre".
- * Edite os valores aqui — um valor null oculta o card até ser preenchido.
+ * Projetos e tecnologias são derivados de src/content/projects.ts, então se
+ * mantêm corretos sozinho. Um valor null oculta o card até ser preenchido.
  */
 export interface AboutStat {
   /** Chave do rótulo em translations (about.stats). */
@@ -10,9 +13,11 @@ export interface AboutStat {
   prefix?: string;
 }
 
+/** Tecnologias distintas usadas ao longo dos projetos. */
+const technologyCount = new Set(projects.flatMap((p) => p.technologies)).size;
+
 export const aboutStats: AboutStat[] = [
-  { id: "projects", value: 6 },
+  { id: "projects", value: projects.length },
   { id: "years", value: 2, prefix: "+" },
-  { id: "commits", value: null }, // TODO: preencher com valor real
-  { id: "technologies", value: null }, // TODO: preencher com valor real
+  { id: "technologies", value: technologyCount, prefix: "+" },
 ];

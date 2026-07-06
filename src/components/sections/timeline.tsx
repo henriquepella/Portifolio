@@ -1,19 +1,31 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollText } from "lucide-react";
 import { useLocale } from "@/components/providers/locale-provider";
 import { Reveal } from "@/components/shared/reveal";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Badge } from "@/components/ui/badge";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { timeline } from "@/content/timeline";
 import { cn } from "@/lib/utils";
+import type { TimelineItem } from "@/types/content";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function Timeline() {
   const { dict, locale } = useLocale();
+  const [diploma, setDiploma] = useState<
+    NonNullable<TimelineItem["image"]> | null
+  >(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -72,6 +84,54 @@ export function Timeline() {
           <ol className="space-y-12">
             {timeline.map((entry, index) => {
               const isLeft = index % 2 === 0;
+              const image = entry.image;
+              const cardClass = cn(
+                "rounded-xl border border-border bg-card p-5 text-left transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5",
+                isLeft && "sm:text-right",
+              );
+              const cardBody = (
+                <>
+                  <div
+                    className={cn(
+                      "flex flex-wrap items-center gap-2",
+                      isLeft && "sm:justify-end",
+                    )}
+                  >
+                    <h3 className="text-base font-semibold">
+                      {entry.title[locale]}
+                    </h3>
+                    {entry.ongoing ? (
+                      <Badge className="border-success/30 bg-success/10 text-success">
+                        {dict.timeline.ongoing}
+                      </Badge>
+                    ) : null}
+                  </div>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {entry.place[locale]}
+                  </p>
+                  <p className="mt-2 text-xs font-medium tracking-wide text-primary">
+                    {entry.period[locale]}
+                  </p>
+                  {image ? (
+                    <span className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/5 px-2.5 py-1 text-xs font-medium text-primary transition-colors group-hover/card:border-primary/60 group-hover/card:bg-primary/10">
+                      <ScrollText className="size-3.5" />
+                      {dict.timeline.viewCertificate}
+                    </span>
+                  ) : null}
+                </>
+              );
+              const card = image ? (
+                <button
+                  type="button"
+                  onClick={() => setDiploma(image)}
+                  aria-label={image.alt[locale]}
+                  className={cn(cardClass, "group/card w-full cursor-pointer")}
+                >
+                  {cardBody}
+                </button>
+              ) : (
+                <div className={cardClass}>{cardBody}</div>
+              );
               return (
                 <li key={entry.id} className="relative">
                   <Reveal
@@ -91,33 +151,7 @@ export function Timeline() {
                     >
                       {entry.year}
                     </span>
-                    <div
-                      className={cn(
-                        "rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5",
-                      )}
-                    >
-                      <div
-                        className={cn(
-                          "flex flex-wrap items-center gap-2",
-                          isLeft && "sm:justify-end",
-                        )}
-                      >
-                        <h3 className="text-base font-semibold">
-                          {entry.title[locale]}
-                        </h3>
-                        {entry.ongoing ? (
-                          <Badge className="border-success/30 bg-success/10 text-success">
-                            {dict.timeline.ongoing}
-                          </Badge>
-                        ) : null}
-                      </div>
-                      <p className="mt-1 text-sm text-muted-foreground">
-                        {entry.place[locale]}
-                      </p>
-                      <p className="mt-2 text-xs font-medium tracking-wide text-primary">
-                        {entry.period[locale]}
-                      </p>
-                    </div>
+                    {card}
                   </Reveal>
 
                   {/* node on the line */}
@@ -133,6 +167,29 @@ export function Timeline() {
           </ol>
         </div>
       </div>
+
+      <Dialog
+        open={diploma !== null}
+        onOpenChange={(open) => {
+          if (!open) setDiploma(null);
+        }}
+      >
+        <DialogContent className="max-w-3xl p-2 sm:max-w-3xl">
+          <DialogHeader className="sr-only">
+            <DialogTitle>{diploma?.alt[locale]}</DialogTitle>
+          </DialogHeader>
+          {diploma ? (
+            <Image
+              src={diploma.src}
+              alt={diploma.alt[locale]}
+              width={1600}
+              height={1217}
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="h-auto w-full rounded-lg"
+            />
+          ) : null}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }

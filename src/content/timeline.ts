@@ -35,6 +35,13 @@ export const timeline: TimelineItem[] = [
       en: "Exchange Program — Senior Year Graduation",
     },
     place: { pt: "Lassen High School, EUA", en: "Lassen High School, USA" },
+    image: {
+      src: "/timeline/lassen-diploma.jpg",
+      alt: {
+        pt: "Diploma de conclusão do Lassen High School",
+        en: "Lassen High School graduation diploma",
+      },
+    },
   },
   {
     id: "ensino-medio",
