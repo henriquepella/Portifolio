@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 });
 
 const description =
-  "Portfólio de Henrique Pella — Software Engineer. Desenvolvimento Full Stack com Java, Python, React e Node.js, focado em performance e boas práticas de engenharia de software.";
+  "Portfólio de Henrique Pella — Software Engineer. Desenvolvimento de software com Java, Python, React e Node.js, focado em performance e boas práticas de engenharia de software.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -33,7 +33,6 @@ export const metadata: Metadata = {
   keywords: [
     "Henrique Pella",
     "Software Engineer",
-    "Full Stack Developer",
     "Java",
     "Python",
     "React",
