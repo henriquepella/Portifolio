@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Construction } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { useLocale } from "@/components/providers/locale-provider";
 import { ProjectDialog } from "@/components/sections/project-dialog";
@@ -48,6 +48,12 @@ export function Projects() {
                     className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-60" />
+                  {project.status === "in-progress" ? (
+                    <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full border border-amber-400/40 bg-amber-400/15 px-3 py-1 text-xs font-medium text-amber-200 backdrop-blur">
+                      <Construction className="size-3.5" />
+                      {dict.projects.inDevelopment}
+                    </span>
+                  ) : null}
                   <span className="absolute right-4 bottom-4 inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-background/80 px-3.5 py-1.5 text-xs font-medium text-primary opacity-0 backdrop-blur transition-all duration-300 group-hover:opacity-100">
                     {dict.projects.viewCaseStudy}
                     <ArrowUpRight className="size-3.5" />

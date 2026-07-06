@@ -24,7 +24,6 @@ interface GithubUser {
 interface GithubRepo {
   name: string;
   fork: boolean;
-  size: number;
   stargazers_count: number;
 }
 
@@ -91,15 +90,17 @@ export async function getGithubStats(): Promise<GithubStatsData | null> {
   const ownRepos = (repos ?? []).filter((repo) => !repo.fork);
   const stars = ownRepos.reduce((sum, repo) => sum + repo.stargazers_count, 0);
 
+  // Query languages for every owned repo. We intentionally do NOT skip repos
+  // by `size`, because GitHub reports size 0 for a just-pushed repo until it
+  // recomputes it (minutes to hours later) — which would hide brand-new repos.
+  // Empty repos simply return {}, so the extra calls are cheap and harmless.
   const languageTotals = new Map<string, number>();
   const perRepoLanguages = await Promise.all(
-    ownRepos
-      .filter((repo) => repo.size > 0)
-      .map((repo) =>
-        ghFetch<Record<string, number>>(
-          `/repos/${username}/${repo.name}/languages`,
-        ),
+    ownRepos.map((repo) =>
+      ghFetch<Record<string, number>>(
+        `/repos/${username}/${repo.name}/languages`,
       ),
+    ),
   );
   for (const repoLanguages of perRepoLanguages) {
     for (const [language, bytes] of Object.entries(repoLanguages ?? {})) {
