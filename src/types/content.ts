@@ -64,6 +64,7 @@ export interface Dictionary {
     technologies: string;
     github: string;
     demo: string;
+    inDevelopment: string;
   };
   github: {
     eyebrow: string;
@@ -146,6 +147,8 @@ export interface Project {
   technologies: string[];
   cover: string;
   gallery: { src: string; alt: Localized }[];
+  /** Marks a work-in-progress project — shows an "in development" badge. */
+  status?: "in-progress";
   /** Omit for private repositories — the GitHub button is hidden. */
   githubUrl?: string;
   demoUrl?: string;

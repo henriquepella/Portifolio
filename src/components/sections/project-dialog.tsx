@@ -2,7 +2,14 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ExternalLink, Lightbulb, Puzzle, Target, ZoomIn } from "lucide-react";
+import {
+  Construction,
+  ExternalLink,
+  Lightbulb,
+  Puzzle,
+  Target,
+  ZoomIn,
+} from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { useLocale } from "@/components/providers/locale-provider";
 import { Badge } from "@/components/ui/badge";
@@ -84,8 +91,14 @@ export function ProjectDialog({ project, onOpenChange }: ProjectDialogProps) {
 
             <div className="space-y-6 p-6 sm:p-8">
               <DialogHeader className="space-y-2 text-left">
-                <DialogTitle className="text-2xl font-semibold tracking-tight">
+                <DialogTitle className="flex flex-wrap items-center gap-3 text-2xl font-semibold tracking-tight">
                   {project.title}
+                  {project.status === "in-progress" ? (
+                    <Badge className="border-amber-500/40 bg-amber-400/10 text-xs font-medium text-amber-600 dark:text-amber-300">
+                      <Construction className="mr-1 size-3.5" />
+                      {dict.projects.inDevelopment}
+                    </Badge>
+                  ) : null}
                 </DialogTitle>
                 <DialogDescription className="text-base leading-relaxed">
                   {project.description[locale]}

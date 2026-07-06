@@ -133,6 +133,39 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Kouqui/SI-PI4-2025-T101-G03",
   },
   {
+    id: "biblioteca-java",
+    title: "Sistema de Biblioteca",
+    status: "in-progress",
+    description: {
+      pt: "Sistema de gerenciamento de biblioteca em Java 17, em desenvolvimento: aplicação de console para livros, usuários e empréstimos, com persistência via JDBC puro em MySQL e arquitetura em camadas (MVC + DAO).",
+      en: "Library management system in Java 17, under development: a console application for books, users and loans, persisted with pure JDBC on MySQL and organized in a layered architecture (MVC + DAO).",
+    },
+    challenge: {
+      pt: "Construir um sistema completo e seguro sem framework — modelando um domínio real (funcionários, membros, acervo e empréstimos) e falando direto com o banco via JDBC, com regras de negócio e controle de acesso por perfil.",
+      en: "Build a complete, secure system without a framework — modeling a real domain (staff, members, catalog and loans) and talking directly to the database via JDBC, with business rules and role-based access control.",
+    },
+    solution: {
+      pt: "Arquitetura em camadas MVC + DAO: modelo de domínio com herança e polimorfismo (Pessoa → Funcionário → perfis; Membro), interfaces DAO com PreparedStatement (proteção contra SQL Injection), senhas com hash BCrypt e testes de serviço em JUnit 5. Entregue camada por camada.",
+      en: "Layered MVC + DAO architecture: a domain model with inheritance and polymorphism (Pessoa → Funcionário → roles; Membro), DAO interfaces with PreparedStatement (SQL-injection safe), BCrypt-hashed passwords and JUnit 5 service tests. Delivered layer by layer.",
+    },
+    learnings: {
+      pt: "POO aplicada de ponta a ponta (encapsulamento, herança, polimorfismo, abstração), acesso a dados com JDBC puro, modelagem relacional (schema + seed SQL), segurança de senhas e build com Maven.",
+      en: "End-to-end applied OOP (encapsulation, inheritance, polymorphism, abstraction), data access with pure JDBC, relational modeling (schema + seed SQL), password security and Maven builds.",
+    },
+    technologies: ["Java", "JDBC", "MySQL", "Maven", "BCrypt", "JUnit 5"],
+    cover: "/projects/biblioteca/cover.png",
+    gallery: [
+      {
+        src: "/projects/biblioteca/cover.png",
+        alt: {
+          pt: "Modelo de domínio do sistema de biblioteca",
+          en: "Library system domain model",
+        },
+      },
+    ],
+    githubUrl: "https://github.com/henriquepella/Biblioteca-java",
+  },
+  {
     id: "registro-riscos",
     title: "App de Registro de Riscos",
     description: {

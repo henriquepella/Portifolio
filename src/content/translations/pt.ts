@@ -65,6 +65,7 @@ export const pt: Dictionary = {
     technologies: "Tecnologias",
     github: "GitHub",
     demo: "Demo",
+    inDevelopment: "Em desenvolvimento",
   },
   github: {
     eyebrow: "GitHub",
