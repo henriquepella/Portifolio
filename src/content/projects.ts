@@ -2,6 +2,59 @@ import type { Project } from "@/types/content";
 
 export const projects: Project[] = [
   {
+    id: "fluxo",
+    title: "Fluxo — Controle Financeiro",
+    description: {
+      pt: "Aplicação full-stack de finanças pessoais construída como monorepo (Next.js + NestJS): dashboard com gráficos de fluxo de caixa, lançamentos, orçamentos por categoria, múltiplas contas e exportação — tudo navegável por mês.",
+      en: "Full-stack personal finance app built as a monorepo (Next.js + NestJS): cash-flow dashboard with charts, transactions, per-category budgets, multiple accounts and export — all navigable by month.",
+    },
+    challenge: {
+      pt: "Construir um controle financeiro completo e escalável — dashboard, lançamentos, orçamentos e contas — mantendo a lógica de negócio independente de framework e o código sustentável para evoluir por módulos.",
+      en: "Build a complete, scalable finance manager — dashboard, transactions, budgets and accounts — while keeping business logic framework-independent and the codebase maintainable to grow module by module.",
+    },
+    solution: {
+      pt: "Monorepo com Turborepo separando frontend (Next.js 16, React 19, Tailwind) e backend (NestJS, Prisma, PostgreSQL), organizado com Clean Architecture e DDD: camada de domínio isolada, casos de uso como unidades de primeira classe e repositórios com inversão de dependência.",
+      en: "Turborepo monorepo splitting the frontend (Next.js 16, React 19, Tailwind) and backend (NestJS, Prisma, PostgreSQL), organized with Clean Architecture and DDD: an isolated domain layer, use cases as first-class units and repositories with dependency inversion.",
+    },
+    learnings: {
+      pt: "Clean Architecture e DDD na prática, organização de um monorepo com Turborepo, integração front-end/back-end tipada de ponta a ponta e modelagem de um domínio financeiro com contas, categorias e orçamentos.",
+      en: "Clean Architecture and DDD in practice, structuring a Turborepo monorepo, end-to-end typed front-end/back-end integration and modeling a financial domain with accounts, categories and budgets.",
+    },
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "NestJS",
+      "Prisma",
+      "PostgreSQL",
+      "Turborepo",
+    ],
+    cover: "/projects/fluxo/cover.png",
+    gallery: [
+      {
+        src: "/projects/fluxo/cover.png",
+        alt: { pt: "Dashboard financeiro", en: "Financial dashboard" },
+      },
+      {
+        src: "/projects/fluxo/lancamentos.png",
+        alt: { pt: "Lançamentos e filtros", en: "Transactions and filters" },
+      },
+      {
+        src: "/projects/fluxo/orcamentos.png",
+        alt: { pt: "Orçamentos por categoria", en: "Per-category budgets" },
+      },
+      {
+        src: "/projects/fluxo/categorias.png",
+        alt: {
+          pt: "Categorias de receitas e despesas",
+          en: "Income and expense categories",
+        },
+      },
+    ],
+    githubUrl: "https://github.com/henriquepella/controle-financeiro",
+  },
+  {
     id: "aldino",
     title: "Projeto Aldino",
     description: {
