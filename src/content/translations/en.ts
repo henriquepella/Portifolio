@@ -39,6 +39,7 @@ export const en: Dictionary = {
     heading: "My journey",
     description: "A timeline of my education and growth as a developer.",
     ongoing: "Ongoing",
+    viewCertificate: "View diploma",
   },
   skills: {
     eyebrow: "Skills",
@@ -86,13 +87,6 @@ export const en: Dictionary = {
     eyebrow: "Services",
     heading: "How I can help",
     description: "Areas where I can add value to your team or project.",
-  },
-  certificates: {
-    eyebrow: "Certificates",
-    heading: "Certifications & studies",
-    description:
-      "Certifications I'm building to consolidate my technical foundation.",
-    inProgress: "In progress",
   },
   contact: {
     eyebrow: "Contact",

@@ -1,5 +1,4 @@
 import { About } from "@/components/sections/about";
-import { Certificates } from "@/components/sections/certificates";
 import { Contact } from "@/components/sections/contact";
 import { GithubStats } from "@/components/sections/github-stats";
 import { Hero } from "@/components/sections/hero";
@@ -22,7 +21,6 @@ export default async function Home() {
       <Skills />
       <GithubStats data={githubStats} />
       <Services />
-      <Certificates />
       <Contact />
     </>
   );

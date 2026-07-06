@@ -40,6 +40,7 @@ export const pt: Dictionary = {
     description:
       "Uma linha do tempo da minha formação e evolução como desenvolvedor.",
     ongoing: "Em andamento",
+    viewCertificate: "Ver diploma",
   },
   skills: {
     eyebrow: "Skills",
@@ -88,13 +89,6 @@ export const pt: Dictionary = {
     heading: "Como posso ajudar",
     description:
       "Áreas em que posso agregar valor ao seu time ou projeto.",
-  },
-  certificates: {
-    eyebrow: "Certificados",
-    heading: "Certificações e estudos",
-    description:
-      "Certificações que estou construindo para consolidar minha base técnica.",
-    inProgress: "Em progresso",
   },
   contact: {
     eyebrow: "Contato",

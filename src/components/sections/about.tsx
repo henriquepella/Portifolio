@@ -187,7 +187,7 @@ export function About() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.15} className="mt-14 grid grid-cols-2 gap-4 lg:grid-cols-4">
+        <Reveal delay={0.15} className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3">
           {stats.map((stat) => (
             <StatCard key={stat.label} {...stat} />
           ))}

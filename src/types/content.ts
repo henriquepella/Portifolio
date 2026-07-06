@@ -41,6 +41,7 @@ export interface Dictionary {
     heading: string;
     description: string;
     ongoing: string;
+    viewCertificate: string;
   };
   skills: {
     eyebrow: string;
@@ -85,12 +86,6 @@ export interface Dictionary {
     eyebrow: string;
     heading: string;
     description: string;
-  };
-  certificates: {
-    eyebrow: string;
-    heading: string;
-    description: string;
-    inProgress: string;
   };
   contact: {
     eyebrow: string;
@@ -163,6 +158,8 @@ export interface TimelineItem {
   title: Localized;
   place: Localized;
   ongoing?: boolean;
+  /** Optional attached image (e.g., a diploma) opened in a lightbox on click. */
+  image?: { src: string; alt: Localized };
 }
 
 export interface Skill {
@@ -184,10 +181,3 @@ export interface Service {
   description: Localized;
 }
 
-export interface Certificate {
-  id: string;
-  name: string;
-  issuer: string;
-  icon: IconType;
-  status: "completed" | "in-progress";
-}
