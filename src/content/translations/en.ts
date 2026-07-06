@@ -13,7 +13,7 @@ export const en: Dictionary = {
   hero: {
     badge: "Available for opportunities",
     role: "Software Engineer",
-    tagline: "Full Stack Developer | Java | Python | React | Node.js",
+    tagline: "Java | Python | React | Node.js",
     description:
       "I build modern, scalable applications focused on performance, user experience and software engineering best practices.",
     viewProjects: "View Projects",

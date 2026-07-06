@@ -45,7 +45,7 @@ export default function OpengraphImage() {
           {siteConfig.role}
         </div>
         <div style={{ fontSize: 24, color: "#94a3b8", marginTop: 24 }}>
-          Full Stack Developer | Java | Python | React | Node.js
+          Java | Python | React | Node.js
         </div>
       </div>
     ),
