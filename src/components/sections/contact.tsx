@@ -23,16 +23,28 @@ import { Textarea } from "@/components/ui/textarea";
 import { siteConfig } from "@/content/site";
 import type { Dictionary } from "@/types/content";
 
-const FORM_ENDPOINT = `https://formsubmit.co/ajax/${siteConfig.email}`;
+/**
+ * FormSubmit target. Prefer the random form ID over the raw address: the
+ * endpoint ships in the client bundle, so using the e-mail directly publishes
+ * it to every scraper that reads the JS. Get the ID from the confirmation
+ * e-mail FormSubmit sends on first submit and set it in `.env.local` /
+ * Vercel as `NEXT_PUBLIC_FORMSUBMIT_ID`.
+ */
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${
+  process.env.NEXT_PUBLIC_FORMSUBMIT_ID || siteConfig.email
+}`;
 
 type FormStatus = "idle" | "sending" | "success" | "error";
 
 function buildSchema(validation: Dictionary["contact"]["form"]["validation"]) {
   return z.object({
-    name: z.string().trim().min(2, validation.nameMin),
-    email: z.string().trim().email(validation.emailInvalid),
-    subject: z.string().trim().min(3, validation.subjectMin),
-    message: z.string().trim().min(10, validation.messageMin),
+    name: z.string().trim().min(2, validation.nameMin).max(80),
+    email: z.string().trim().email(validation.emailInvalid).max(160),
+    subject: z.string().trim().min(3, validation.subjectMin).max(120),
+    message: z.string().trim().min(10, validation.messageMin).max(3000),
+    // Honeypot: hidden from users, filled in by naive bots. FormSubmit drops
+    // any submission where `_honey` is non-empty.
+    _honey: z.string().max(0).optional(),
   });
 }
 
@@ -72,7 +84,8 @@ export function Contact() {
           ...values,
           _subject: `Portfolio — ${values.subject}`,
           _template: "table",
-          _captcha: "false",
+          // Honeypot stays enabled server-side; see `_honey` in the schema.
+          _honey: values._honey ?? "",
         }),
       });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -169,6 +182,20 @@ export function Contact() {
               noValidate
               className="glass-card space-y-5 rounded-2xl border border-border p-6 sm:p-8"
             >
+              {/*
+                Honeypot: invisible to humans and to screen readers, but a bot
+                that blindly fills every input trips it and the submission is
+                discarded. Must stay out of the tab order.
+              */}
+              <input
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="sr-only"
+                {...register("_honey")}
+              />
+
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="contact-name">{dict.contact.form.name}</Label>
